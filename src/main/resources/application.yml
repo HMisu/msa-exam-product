@@ -12,6 +12,12 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      username: default
+      password: systempass
 
 management:
   endpoints:
