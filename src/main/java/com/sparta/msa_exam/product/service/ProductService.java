@@ -75,9 +75,8 @@ public class ProductService {
     }
 
     @Caching(evict = {
+            @CacheEvict(cacheNames = "productCache", key = "#productId"),
             @CacheEvict(cacheNames = "productSearchCache", allEntries = true)
-    }, put = {
-            @CachePut(cacheNames = "productCache", key = "args[0]")
     })
     @Transactional
     public void reduceProductQuantity(Long productId, int quantity) {
